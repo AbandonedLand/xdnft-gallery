@@ -30,6 +30,10 @@ The script will create an `index.html` file in the output folder you are prompte
 
 Here is a demo posted on X (Twitter) of running the script. https://x.com/steppsr/status/1785173812847296764
 
+### Example of Site
+
+![Example of site](example.png)
+
 #### _All works created by Steve Stepp_
 
 ---
