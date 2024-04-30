@@ -11,9 +11,10 @@ This Windows Powershell script will scan a folder with Offer files and build an 
 
 ### User Config
 
-* Need to set the Spacescan URL at the top of the script.
+* Need to set the Spacescan URL at the top of the script. This will be different depending on the blockchain.
 * The collectionID function at the top of the script relys on my own XCHDEV API. You can bypass this by changing "YOUR_COLLECTION_ID" in the return statement. You'll need to uncomment by removing the hashtag '#' and then comment out the existing return by adding a hashtag before "return $response.col_id"
 * All of the CSS is in one spot so it can be updated as desired.
+* For now, you will need to update the script based on whether you are running for Chia or ABA. There are a number of CLI commands which you can search `aba ` and replace with `chia `. Notice I including a single space in the search and replace terms.
 
 ### Output
 
@@ -25,7 +26,19 @@ The script will create an `index.html` file in the output folder you are prompte
 .\xdnft-gallery.ps1
 ```
 
-### Update History
+### Demo
 
-* 2024-04-29 SRS - Initial build - version 0.1
-* 2024-04-27 SRS - Started
+Here is a demo posted on X (Twitter) of running the script. https://x.com/steppsr/status/1785173812847296764
+
+#### _All works created by Steve Stepp_
+
+---
+
+### Want to help support?
+
+| Blockchain | Address |
+| ---------- | ------- |
+| Chia (XCH) | xch1xz9g7cyy79vnrh6nuyh86jq4ps6ah2ny0ck2050wfqqfjwkyk0mqd89etp |
+| ABA (ABA) | aba1qje9cx2lfujrqthl9gxg4sdpa8d2evur6kz95mavmnnvwcn6eyys9qz43c |
+| Bitcoin (BTC) | 3ADGMs1i6MU8Bxnr8qC6CPmgTUAS6DevyT |
+| Etherium (ETH) | 0x1F604e5a010f42F36e0C24868454f08056bc5B0A |
