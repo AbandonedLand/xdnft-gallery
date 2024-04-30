@@ -18,7 +18,7 @@ This Windows Powershell script will scan a folder with Offer files and build an 
 
 ### Output
 
-The script will create an `index.html` file in the output folder you are prompted for when the script runs. If the folder does already exist it will get created. All the images for the NFT will allow be downloaded and a resized version stored in that same folder. So, you will have all the necessary website files all in one, easy to upload folder.
+The script will create an `index.html` file in the output folder you are prompted for when the script runs. If the folder doesn't already exist it will get created. All the images for the NFT will allow be downloaded and a resized version stored in that same folder. So, you will have all the necessary website files all in one, easy to upload folder.
 
 ### Running the script
 
