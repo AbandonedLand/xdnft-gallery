@@ -3,11 +3,12 @@
 #   Description:		Powershell script to build a webpage from a folder of offers.
 #   Author:				Steve Stepp
 #   Created on:			April 27, 2024
-#   Latest version:		0.1
+#   Latest version:		0.2
 # ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 #   Update history:		
 #   2024-04-27 SRS - Started
 #   2024-04-29 SRS - Initial build - version 0.1
+#   2024-05-04 ABM - MultiChain Settings - version 0.2
 # ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 #   Notes:	• This is based off offer files, so you need to have offer files saved off on the local drive first.
 # 			• If MintGarden, Dexie support ABA also, need to add those in also.
@@ -25,7 +26,35 @@
 # ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 Add-Type -AssemblyName System.Drawing
 
-$spacescan_url = "https://aba.spacescan.io/"
+
+<#
+	Creating a global variable called $chain.  This varriable will replace all the
+	shell commands in the script where you need to call the blockchain.  This 
+	will also set the spacescan api location for the remainder of the script.
+#>
+$Global:chain = "aba"
+$Global:spacescan_url = "https://aba.spacescan.io/"
+Function Set-Blockchain {
+	param(
+		[Parameter(Mandatory)]
+    	[ValidateSet("chia","aba")] $blockchain
+	)
+	# Set spacescan uri to chia
+	if($blockchain -eq "chia"){
+		$Global:spacescan_url = "https://spacescan.io"
+	}
+	# Set spacescan uri to aba
+	if($blockchain -eq "aba"){
+		$Global:spacescan_url = "https://aba.spacescan.io/"
+	}
+
+	# Set blockchain 
+	$Global:chain = $blockchain
+
+}
+
+
+
 
 function collectionID {
 		param(
